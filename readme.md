@@ -40,16 +40,16 @@ subjects:
   - kind: ServiceAccount
     name: tiller
     namespace: kube-system'| kubectl apply -f -
-helm init --service-account tiller --upgrade
+sudo helm init --service-account tiller --upgrade
 
 # Add the Jetstack Helm repository
-helm repo add jetstack https://charts.jetstack.io
+sudo helm repo add jetstack https://charts.jetstack.io
 
 # Update your local Helm chart repository cache
-helm repo update
+sudo helm repo update
 
 # Install the cert-manager Helm chart
-helm install \
+sudo helm install \
   --name cert-manager \
   --namespace cert-manager \
   --version v0.11.0 \
