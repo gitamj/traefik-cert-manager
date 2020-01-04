@@ -1,14 +1,5 @@
 # Traefik v2 + cert-manager
 
-## Install the kubernetes cluster in GCP US region
-```bash
-export CLUSTER_NAME="cluster-traefik-v2"
-
-gcloud container clusters create "${CLUSTER_NAME}" \
-  --zone="us-west1-a" \
-  --project="${GCLOUD_PROJECT}"
-```
-
 ## Install traefik v2
 
 ```
@@ -30,10 +21,6 @@ kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cer
 # Create the namespace for cert-manager
 kubectl create namespace cert-manager
 
-## For GKE user only
-kubectl create clusterrolebinding cluster-admin-binding \
-  --clusterrole=cluster-admin \
-  --user=$(gcloud config get-value core/account)
 
 echo 'apiVersion: v1
 kind: ServiceAccount
